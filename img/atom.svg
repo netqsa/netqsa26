@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="atom-orbit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#1565c0"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#atom-orbit)" stroke-width="1.6" opacity="0.75">
+    <ellipse cx="50" cy="50" rx="45" ry="17"/>
+    <ellipse cx="50" cy="50" rx="45" ry="17" transform="rotate(60 50 50)"/>
+    <ellipse cx="50" cy="50" rx="45" ry="17" transform="rotate(120 50 50)"/>
+  </g>
+  <g fill="#1e88e5">
+    <circle cx="95" cy="50" r="3.5"/>
+    <circle cx="27.5" cy="89" r="3.5"/>
+    <circle cx="27.5" cy="11" r="3.5"/>
+  </g>
+</svg>

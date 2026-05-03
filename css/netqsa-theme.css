@@ -1,0 +1,402 @@
+/* ============================================================
+   NetQSA 2026 — Quantum theme overrides
+   Loaded after main.css; only overrides what is needed.
+   Palette: atom-blue (saturated medium-deep blue + sky accent).
+   ============================================================ */
+
+:root {
+  --nq-indigo:        #1e88e5; /* blue-600 — primary accent */
+  --nq-indigo-deep:   #1565c0; /* blue-700 — deep accent     */
+  --nq-indigo-darker: #0a1f3d; /* custom navy — text on light */
+  --nq-cyan:          #38bdf8; /* sky-400 — bright accent     */
+  --nq-cyan-deep:     #0284c7; /* sky-600                     */
+  --nq-dark-1:        #0d2e6e; /* hero base — deep royal blue */
+  --nq-dark-2:        #1e4a9c; /* hero mid  — medium royal    */
+  --nq-soft-indigo:   rgba(30, 136, 229, 0.12);
+}
+
+/* ---------- Text selection ---------- */
+::selection      { background-color: var(--nq-cyan) !important; color: #061224 !important; }
+::-moz-selection { background-color: var(--nq-cyan) !important; color: #061224 !important; }
+
+/* ---------- Header / nav ---------- */
+#header {
+  background: rgba(13, 46, 110, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+#header.header-scrolled {
+  background: rgba(13, 46, 110, 0.96);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+#header #logo h1 a,
+#header #logo h1 a:hover { border-left-color: var(--nq-cyan) !important; }
+
+.nav-menu a            { transition: color .2s ease; }
+.nav-menu > li > a:hover,
+.nav-menu .menu-active > a { color: var(--nq-cyan) !important; }
+.nav-menu ul li:hover > a  { color: var(--nq-indigo) !important; }
+
+/* ---------- Hero / banner — dark quantum ---------- */
+.banner-area {
+  background:
+    radial-gradient(ellipse at 18% 25%, rgba(30, 136, 229, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 78%, rgba(56, 189, 248, 0.35) 0%, transparent 55%),
+    linear-gradient(135deg, var(--nq-dark-1) 0%, var(--nq-dark-2) 48%, var(--nq-dark-1) 100%) !important;
+  background-size: cover !important;
+  position: relative;
+  overflow: hidden;
+}
+.banner-area .overlay-bg { background: transparent !important; }
+.banner-area .container  { position: relative; z-index: 2; }
+
+/* Compact hero — override fullscreen */
+.banner-area .fullscreen {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 90px 0 50px !important;
+}
+.banner-content { text-align: center; }
+.banner-content h6 { font-size: 12px; margin-bottom: 12px; letter-spacing: 2.5px; }
+.banner-content h1 { font-size: 52px; margin: 0 0 14px; line-height: 1 !important; }
+.banner-content h5 { font-size: 14px; margin-bottom: 0; line-height: 1.45 !important; }
+@media (max-width: 768px) {
+  .banner-area .fullscreen { padding: 75px 0 40px !important; }
+  .banner-content h1 { font-size: 38px; }
+}
+
+.quantum-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .85;
+}
+
+.banner-content h6 {
+  color: #7dd3fc !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+.banner-content h1 {
+  background: linear-gradient(120deg, #ffffff 0%, #bbdefb 45%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+.banner-content h5,
+.banner-content h5 a { color: #cbd5e1 !important; }
+.banner-content h5 a:hover { color: var(--nq-cyan) !important; }
+.banner-content h4 { color: #94a3b8 !important; font-weight: 300; }
+.banner-content .lnr { color: var(--nq-cyan); margin-right: 8px; }
+
+/* ---------- Section headings ---------- */
+.text-heading {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 36px !important;
+  color: var(--nq-indigo-darker) !important;
+  font-weight: 700;
+}
+.text-heading::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 56px; height: 3px;
+  background: linear-gradient(90deg, var(--nq-indigo), var(--nq-cyan));
+  border-radius: 2px;
+}
+
+.text-gray { color: var(--nq-indigo-deep) !important; font-weight: 600; }
+
+/* ---------- Important Dates (legacy price-area) ---------- */
+.price-area {
+  background: linear-gradient(180deg, #f0f7fc 0%, #ffffff 100%) !important;
+}
+.price-area .single-price {
+  border: 1px solid #e3f2fd;
+  box-shadow: 0 4px 20px rgba(30, 136, 229, 0.06);
+  border-radius: 12px !important;
+}
+.price-area .single-price .package-no {
+  background-color: var(--nq-soft-indigo) !important;
+  border-color: rgba(30, 136, 229, 0.06) !important;
+  color: var(--nq-indigo-deep) !important;
+}
+.price-area .single-price:hover {
+  background: linear-gradient(135deg, var(--nq-indigo-deep), var(--nq-indigo)) !important;
+  color: #fff !important;
+}
+.price-area .single-price:hover .package-no {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+
+/* ---------- Links in body sections ---------- */
+.sample-text-area a       { color: var(--nq-indigo-deep); }
+.sample-text-area a:hover { color: var(--nq-cyan-deep); }
+
+/* ---------- Bullet lists — quantum dot marker ---------- */
+.unordered-list           { list-style: none !important; padding-left: 0 !important; }
+.unordered-list li {
+  position: relative;
+  padding-left: 18px;
+}
+.unordered-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 11px;
+  width: 6px; height: 6px;
+  border: none !important;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nq-indigo), var(--nq-cyan)) !important;
+  box-shadow: 0 0 6px rgba(30, 136, 229, 0.55);
+}
+
+/* Inline emphasis (<b>, <sub>, <sup>, <u>, <del>) — main.css colors them green; restore */
+.sample-text-area b,
+.sample-text-area sup,
+.sample-text-area sub,
+.sample-text-area u,
+.sample-text-area del,
+.banner-content b,
+.banner-content sup,
+.banner-content sub,
+.banner-content u,
+.banner-content del {
+  color: var(--nq-indigo-deep) !important;
+}
+
+/* ---------- Subtle alternating section bg ---------- */
+section.sample-text-area:nth-of-type(even) { background: #f5fafe !important; }
+
+/* ---------- Footer ---------- */
+.footer-area {
+  background: linear-gradient(135deg, var(--nq-dark-2) 0%, var(--nq-dark-1) 100%);
+  color: #dbeafe;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid rgba(56, 189, 248, 0.18);
+}
+.footer-area a { color: var(--nq-cyan); }
+
+/* ---------- Supporters ---------- */
+.supporter-logos {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.supporter-logos a { display: inline-flex; }
+.supporter-logos img { display: block; }
+
+/* ---------- Stats strip (under hero) ---------- */
+.stats-strip {
+  background: linear-gradient(135deg, var(--nq-dark-2) 0%, var(--nq-dark-1) 100%);
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(30, 136, 229, 0.22);
+  position: relative;
+}
+.stats-strip::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.55), transparent);
+}
+.stats-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1 1 220px;
+  padding: 6px 24px;
+  border-right: 1px solid rgba(30, 136, 229, 0.25);
+  color: #e3f2fd;
+}
+.stat:last-child { border-right: none; }
+.stat .lnr {
+  font-size: 26px;
+  color: var(--nq-cyan);
+  flex-shrink: 0;
+}
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.stat-value {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.2;
+}
+@media (max-width: 768px) {
+  .stat {
+    border-right: none;
+    border-bottom: 1px solid rgba(30, 136, 229, 0.18);
+    padding: 14px 12px;
+    flex-basis: 100%;
+  }
+  .stat:last-child { border-bottom: none; }
+}
+
+/* ---------- Important Dates timeline ---------- */
+.dates-area {
+  padding: 100px 0 90px;
+  background: linear-gradient(180deg, #f0f7fc 0%, #ffffff 100%);
+}
+.dates-area .title h1 {
+  font-size: 32px;
+  color: var(--nq-indigo-darker);
+  margin-bottom: 8px;
+}
+.dates-area .dates-subtitle {
+  color: #64748b;
+  font-size: 13px;
+  font-style: italic;
+}
+.timeline-wrap {
+  position: relative;
+  margin-top: 70px;
+  padding: 20px 0;
+}
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nq-indigo) 0%, var(--nq-cyan) 100%);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 20px rgba(30, 136, 229, 0.35);
+}
+.timeline-stops {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.timeline-stop {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 10px;
+}
+.t-label-top {
+  font-size: 14px;
+  color: var(--nq-indigo-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin-bottom: 42px;
+  min-height: 44px;
+  text-shadow: 0 0 18px rgba(30, 136, 229, 0.15);
+}
+.t-node {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nq-indigo-deep) 0%, var(--nq-indigo) 60%, var(--nq-cyan) 100%);
+  color: #fff;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 0 10px rgba(30, 136, 229, 0.18),
+    0 6px 20px rgba(30, 136, 229, 0.45);
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.t-node span { display: block; position: relative; z-index: 2; }
+.timeline-stop:hover .t-node {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 0 12px rgba(56, 189, 248, 0.28),
+    0 8px 28px rgba(56, 189, 248, 0.5);
+}
+
+/* Static atom decoration behind each node */
+.t-node::before {
+  content: "";
+  position: absolute;
+  width: 132px; height: 132px;
+  top: 50%; left: 50%;
+  margin: -66px 0 0 -66px;
+  background: url("../img/atom.svg") center / contain no-repeat;
+  pointer-events: none;
+  opacity: .55;
+  z-index: -1;
+}
+/* Slight stagger: each node's atom rotated a bit so they don't look identical */
+.timeline-stop:nth-child(2) .t-node::before { transform: rotate(20deg); }
+.timeline-stop:nth-child(3) .t-node::before { transform: rotate(45deg); }
+.timeline-stop:nth-child(4) .t-node::before { transform: rotate(70deg); }
+
+.t-date {
+  margin-top: 36px;
+  font-size: 17px;
+  color: var(--nq-indigo-darker);
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    right: auto;
+    top: 4%;
+    bottom: 4%;
+    width: 3px;
+    height: auto;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--nq-indigo) 0%, var(--nq-cyan) 100%);
+  }
+  .timeline-stops { flex-direction: column; gap: 36px; }
+  .timeline-stop { padding: 0; }
+  .t-label-top { min-height: auto; margin-bottom: 12px; }
+  .t-date { margin-top: 14px; }
+}
+
+/* ---------- Quantum SVG node/link animations ---------- */
+.q-node {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: q-pulse 3.4s ease-in-out infinite;
+}
+.q-node:nth-of-type(2n)   { animation-delay: .6s; }
+.q-node:nth-of-type(3n)   { animation-delay: 1.2s; }
+.q-node:nth-of-type(5n)   { animation-delay: 1.8s; }
+.q-node:nth-of-type(7n)   { animation-delay: 2.4s; }
+@keyframes q-pulse {
+  0%, 100% { opacity: .55; }
+  50%      { opacity: 1;  }
+}
+.q-link { animation: q-flow 5s ease-in-out infinite; }
+.q-link:nth-of-type(2n)   { animation-delay: .8s; }
+.q-link:nth-of-type(3n)   { animation-delay: 1.6s; }
+@keyframes q-flow {
+  0%, 100% { stroke-opacity: .12; }
+  50%      { stroke-opacity: .55; }
+}
