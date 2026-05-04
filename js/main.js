@@ -96,9 +96,7 @@ $(document).ready(function(){
           }
         }
 
-        $('html, body').animate({
-          scrollTop: target.offset().top - top_space
-        }, 1500, 'easeInOutExpo');
+        $('html, body').scrollTop(target.offset().top - top_space);
 
         if ($(this).parents('.nav-menu').length) {
           $('.nav-menu .menu-active').removeClass('menu-active');
@@ -126,11 +124,7 @@ $(document).ready(function(){
 
         $('html, body').scrollTop(0).show();
 
-        $('html, body').animate({
-
-        scrollTop: $(window.location.hash).offset().top - 62
-
-        }, 1000)
+        $('html, body').scrollTop($(window.location.hash).offset().top - 62);
 
         }, 0);
 
