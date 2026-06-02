@@ -291,7 +291,7 @@ section.sample-text-area:nth-of-type(even) { background: #f5fafe !important; }
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   z-index: 2;
 }
 .timeline-stop {
