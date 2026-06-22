@@ -363,12 +363,14 @@ section.sample-text-area:nth-of-type(even) { background: #f5fafe !important; }
   letter-spacing: -0.2px;
 }
 .t-date-old {
+  display: block;
   text-decoration: line-through;
   text-decoration-color: #e23b3b;
   text-decoration-thickness: 2px;
   color: #9aa3b2;
   font-weight: 600;
 }
+.t-date-old + .t-date-old { margin-top: 2px; }
 .t-date-new {
   display: block;
   margin-top: 4px;
